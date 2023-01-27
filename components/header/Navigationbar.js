@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { MAIN_TABS } from './Tabs';
 
 function Navigationbar() {
     return (
@@ -25,27 +26,31 @@ function Navigationbar() {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="pe-5 ps-5 ms-5">
-                      <Nav.Link href="#action1">Home</Nav.Link>
-                      <Nav.Link href="#action2">Link</Nav.Link>
-                      <Nav.Link className='' id={`test-expand-${expand}`}>Link2</Nav.Link>
-                      <NavDropdown
-                        title="Dropdown"
-                        id={`offcanvasNavbarDropdown-expand-${expand}`}
-                      >
-                        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">
-                          Another action
-                        </NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action5">
-                          Something else here
-                        </NavDropdown.Item>
-                      </NavDropdown>
+                      {
+                        MAIN_TABS.map((tabObj) => (
+                          tabObj.hasChildren ?
+                          <NavDropdown
+                            title={tabObj.name} id={`offcanvasNavbarDropdown-expand-${expand}`} >
+                            <NavDropdown.Divider />
+                            {
+                              tabObj.children.map((child) => (
+                                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                              ))
+                            }
+                          </NavDropdown>
+                          :
+                          <Nav.Link className='text-dark p-4' href="#action1">{tabObj.name}</Nav.Link>
+                        ))
+                      }
+                      <div className='d-xl-none'>
+                        <Nav.Link className='text-dark p-4' href="#action1">LOG IN</Nav.Link>
+                        <Nav.Link className='text-dark p-4' href="#action1">SIGN UP</Nav.Link>
+                      </div>
                     </Nav>
-                    <Nav className='ms-auto d-none d-xl-block'>
+                    <Nav className='ms-auto d-none d-xl-block p-3'>
                       <div className='me-5'>
-                        <Button className='btn-outline-primary btn-light rounded-pill me-3'>Log In</Button>
-                        <Button className='rounded-pill'>Sign Up</Button>
+                        <Button className='btn-outline-primary btn-light rounded-pill me-3'>LOG IN</Button>
+                        <Button className='rounded-pill'>SIGN UP</Button>
                       </div>
                     </Nav>
                   </Offcanvas.Body>
