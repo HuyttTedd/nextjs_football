@@ -10,7 +10,7 @@ import { MAIN_TABS } from './Tabs';
 function Navigationbar() {
     return (
         <>
-          {[false, 'xl'].map((expand) => (
+          {['xl'].map((expand) => (
             <Navbar key={expand} bg="light" expand={expand} className="mb-3">
               <Container fluid>
                 <Navbar.Brand className='ms-5' href="#">Navbar</Navbar.Brand>

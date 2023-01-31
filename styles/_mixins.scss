@@ -1,0 +1,19 @@
+$breakpoint_sm: "only screen and (max-width : 768px)";
+$breakpoint_md: "only screen and (max-width : 992px)";
+$breakpoint_lg: "only screen and (max-width : 1024px)";
+$breakpoint_desktop: "only screen and (min-width : 1024px)";
+// $breakpoint: $breakpoint-sm, $breakpoint-md, $breakpoint-lg;
+
+@mixin desktop() {
+    @media (max-width: 600px) {
+        @content;    
+    }
+}
+
+@mixin desktopAvatarContainer($breakpoint...) {
+    @each $point in $breakpoint {
+        @media #{$point} {
+          @content($point);
+        }
+      }
+}
