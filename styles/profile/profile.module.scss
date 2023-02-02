@@ -1,5 +1,16 @@
 @import "../mixins";
 
+.profile-body-container {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1218px;
+    padding-left: 16px;
+    padding-top: 16px;
+    margin-top: 69px;
+    border-top: 2px solid gray;
+}
+
 .avatar-view-container {
     position: relative;
     display: flex !important;
