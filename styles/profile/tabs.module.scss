@@ -1,5 +1,7 @@
 .tab-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
     a {
         position: relative;
         padding: 20px 36px;
@@ -8,13 +10,12 @@
         cursor: pointer;
         text-decoration: none;
         border-radius: 10px;
-
         &:hover {
             background-color: #EBEDF0;
         }
     }
 
-    .test {
+    .sticky-selected {
         &:after {
             content: '';
             position: absolute;
