@@ -1,4 +1,4 @@
-export const MAIN_TABS = [
+export const HEADER_ITEMS = [
     {
         'name': 'LIVESCORE',
         'hasChildren': false,

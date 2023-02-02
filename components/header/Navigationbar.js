@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { MAIN_TABS } from './Tabs';
+import { HEADER_ITEMS } from './HeaderItems';
 
 function Navigationbar() {
     return (
@@ -27,7 +27,7 @@ function Navigationbar() {
                   <Offcanvas.Body>
                     <Nav className="pe-5 ps-5 ms-5">
                       {
-                        MAIN_TABS.map((tabObj) => (
+                        HEADER_ITEMS.map((tabObj) => (
                           tabObj.hasChildren ?
                           <NavDropdown
                             title={tabObj.name} id={`offcanvasNavbarDropdown-expand-${expand}`} >
